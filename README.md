@@ -6,7 +6,7 @@ This repository contains Python codes for phase field simulations of ferroelectr
 
 ## Project Structure
 
-<img src="https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/blob/main/images/workflow.png" alt="Code Stucture" width="300" height="200">
+<img src="https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/blob/main/images/workflow.png" alt="Code Stucture" width="500" height="400">
 
 <!-- ![Sample Image](https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/blob/main/images/workflow.png) -->
 
