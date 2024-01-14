@@ -6,7 +6,9 @@ This repository contains Python codes for phase field simulations of ferroelectr
 
 ## Project Structure
 
-![Sample Image](https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/blob/main/images/workflow.png)
+<img src="https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/blob/main/images/workflow.png" alt="Code Stucture" width="300" height="200">
+
+<!-- ![Sample Image](https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/blob/main/images/workflow.png) -->
 
 - **main.py**: The main file executed to run the simulation. It contains simulation parameters and imports the `evolve_polarization` module.
 
