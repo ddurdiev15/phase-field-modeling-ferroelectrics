@@ -6,20 +6,26 @@ This repository contains Python codes for phase field simulations of ferroelectr
 
 ## Project Structure
 
+![Sample Image](https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/main/images/workflow.png)
+
 - **main.py**: The main file executed to run the simulation. It contains simulation parameters and imports the `evolve_polarization` module.
 
 - **evolve_polarization.py**: Contains the polarization evolution function. Imports modules for parameters, piezoelectric and strain tensor calculation, energy calculation, Fourier frequency calculation, VTK file writing, Greens function calculation, and piezoelectricity solver.
 
 - **parameters.py**: Stores all material parameters used in the simulation.
 
-- **piezo_strain_tensor.py**: Calculates the piezoelectric tensor and its derivative.
+- **piezo_strain_tensor.py**: Calculates the piezoelectric and spontaneous strain tensor and its derivative.
 
 - **energy.py**: Calculates bulk energy and its derivative.
 
 - **fourier_frequency.py**: Calculates Fourier frequencies.
 
-- **write_to_vtk.py**: Provides functionality to write simulation results to VTK files in 3D.
+- **write_vtk.py**: Provides functionality to write simulation results to VTK files in 3D.
 
 - **greens_function.py**: Calculates the Green's function in Fourier space.
 
 - **solver.py**: Solves the piezoelectric constitutive and balance equations.
+
+## Usage
+
+To run the simulation, execute `main.py` and customize the parameters as needed.
