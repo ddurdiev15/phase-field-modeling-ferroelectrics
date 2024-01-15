@@ -48,7 +48,7 @@ def main():
     FOLDER = os.getcwd()
 
     # Evolve
-    evolve_polarization.Evolve_Sponteneous_Polarization(device, FOLDER, grid_points, grid_space, time,
+    evolve_polarization.Evolve_Sponteneous_Polarization_Isotropic(device, FOLDER, grid_points, grid_space, time,
                                     elec_field_ext, eps_ext_applied, domain_type, save_data)
     # ----------------------------------------------------------------------------
     stop_tm = timeit.default_timer()

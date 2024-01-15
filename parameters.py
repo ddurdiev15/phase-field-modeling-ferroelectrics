@@ -46,7 +46,7 @@ def Voigt_to_full_Tensor_3D(C):
 def BTO_MD():
 
     """
-    Returns all the materials parameters
+    Returns all the materials parameters obtained from MD simulations
     """
     # stiffness tensor components
     C11, C12, C44 = 201e9, 164e9, 138e9  # J/m³
@@ -90,10 +90,61 @@ def BTO_MD():
     # return all of them
     return C0, K0, P0, e0, e31, e33, e15, G, l_180, mu, mob
 
+def Landau_Polynomial_Coeffs_Schrade():
+    """
+    Returns the Landau polynomial coefficients.
+    """
+    a1      = -86/75
+    a2      = -53/75
+    a3      = 134/25
+    a4      = 64/75
+
+    return a1, a2, a3, a4
+
+def BTO_3D_Schrade():
+
+    G       = 12e-3                       # J/m²=N/m Interfacial Energy
+    l_wall  = 1.5E-9                      # m: Thickness of interface: Length Scale
+    P0      = 0.26                        # C/m²: Maximum polarization
+    mob     = 26/75*1e3                   # A/Vm: mobility beta^-1
+    c_tet   = 4.032                         # angstrom
+    a_tet   = 3.992                         # angstrom
+    e00     = 2*(c_tet-a_tet)/(c_tet+2*a_tet)
+
+     # ----------------------- MATERIAL PARAMETERS ----------------------------
+    k_sep   = 0.70    # Separation coefficient
+    k_grad  = 0.35   # Gradient Energy coefficient
+
+    # piezoelectric tensor components
+    e31, e33, e15 = (-0.7, 6.7, 34.2)  # e33 = 6.7
+    # e_ver = e33; e_per = e31; e_hor = e15
+
+    # e_ver = e_piezo[0]; e_per = e_piezo[1]; e_hor = e_piezo[2]
+    # e33 = e_piezo[0]; e31 = e_piezo[1]; e15 = e_piezo[2]
+
+    # Elastic tensor comps
+    C11 = 22.2e10
+    C12 = 11.1e10
+    C44 = 6.1e10
+
+    C_cub = np.array([[C11, C12, C12, 0, 0, 0],
+                      [C12, C11, C12, 0, 0, 0],
+                      [C12, C12, C11, 0, 0, 0],
+                      [0,   0,   0, C44, 0, 0],
+                      [0,   0,   0, 0, C44, 0],
+                      [0,   0,   0, 0, 0, C44]])
+
+    C0 = torch.tensor(Voigt_to_full_Tensor_3D(C_cub))
+
+    k = 19.5e-9
+
+    K0 = torch.eye(3)*k
+    return G, l_wall, P0, mob, e00, k_sep, k_grad, e31, e33, e15, C0, K0
+
 # Inital polarization
 def initial_polarization(Nx, Ny, domain_type, Nz):
 
-    torch.manual_seed(42)
+    torch.manual_seed(51254)
     print("Initial polarization for 3D simulations")
 
     if domain_type == 'random':
