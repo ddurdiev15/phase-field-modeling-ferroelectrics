@@ -23,7 +23,7 @@ def Landau_Polynomial_Coeffs():
     """
     Returns the Landau polynomial coefficients.
     """
-    a1, a2, a3, a4 = -0.1, -2.8, 0.4, 1.9
+    a1, a2, a3, a4 = -0.1, -2.8, -3.8, 1.9
 
     return a1, a2, a3, a4
 
@@ -176,7 +176,7 @@ def initial_polarization(Nx, Ny, domain_type, Nz):
         first_col[:int(nn)]=0
         first_col[2*int(nn)-1:3*int(nn)]=0
 
-        Pyy = linalg.toeplitz(first_col, first_row)
+        Pyy = torch.from_numpy(linalg.toeplitz(first_col, first_row))
         Pxx = (1-Pyy)*-1
         # create 90° DW in yz plane
         Px = torch.zeros((Nx,Ny,Nz))
