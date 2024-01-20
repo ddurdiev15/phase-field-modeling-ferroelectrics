@@ -31,3 +31,8 @@ This repository contains Python codes for phase field simulations of ferroelectr
 ## Usage
 
 To run the simulation, execute `main.py` and customize the parameters as needed.
+
+## Result
+
+This is the domain evolution in 3D starting from the initial random polarization leading to the 90° domain wall.
+![GIF Example](https://github.com/ddurdiev15/phase-field-modeling-ferroelectrics/blob/main/results/90_DW.gif)
