@@ -1,0 +1,12 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Durdiev
+    given-names: Dilshod
+    orcid: https://orcid.org/0000-0002-3835-2461
+title: "An effective Fourier spectral phase-field approach for ferroelectric materials"
+version: 1.0.0
+identifiers:
+  - type: doi
+    value: 10.1016/j.commatsci.2022.111928
+date-released: 2023-02-05
